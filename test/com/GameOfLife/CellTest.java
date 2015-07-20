@@ -11,7 +11,7 @@ public class CellTest {
 	List<Cell> cellsList;
 	Cell lonelyCell = new Cell(true);
 	List<Cell> lonelyCellsList;
-	
+
 	@Before
 	public void setUp() {
 		cellsList = new ArrayList<Cell>();
@@ -29,17 +29,17 @@ public class CellTest {
 	public void shouldBeTrueForCellIsAlive() {
 		Assert.assertTrue(cell.isAlive());
 	}
+
 	@Test
 	public void shouldDisplayAliveCell() {
 		Assert.assertTrue(cell.isAlive());
-		cell.print();
 	}
+
 	@Test
 	public void shouldDisplayDeadCell() {
 		lonelyCell.setNextState();
 		lonelyCell.changeState();
 		Assert.assertFalse(lonelyCell.isAlive());
-		lonelyCell.print();
 	}
 
 	@Test
@@ -48,7 +48,6 @@ public class CellTest {
 		cell.changeState();
 		Assert.assertTrue(cell.isAlive());
 	}
-	
 
 	@Test
 	public void shouldBeFalseForCellNextState() {
@@ -59,6 +58,7 @@ public class CellTest {
 		cell.changeState();
 		Assert.assertFalse(cell.isAlive());
 	}
+
 	@Test
 	public void shouldBeFalseForNextGenWhenNeighboursAreAdded() {
 		List<Cell> newCellsList = new ArrayList<Cell>();
@@ -79,12 +79,14 @@ public class CellTest {
 		cell.changeState();
 		Assert.assertFalse(cell.isAlive());
 	}
+
 	@Test
 	public void lonelyCellshouldBeDeadInNextGeneration() {
 		lonelyCell.setNextState();
 		lonelyCell.changeState();
 		Assert.assertFalse(lonelyCell.isAlive());
 	}
+
 	@Test
 	public void lonelyCellShouldLiveInTwoGenerationsWhenNeighboursAreAdded() {
 		lonelyCell.setNextState();
@@ -98,6 +100,7 @@ public class CellTest {
 		lonelyCell.changeState();
 		Assert.assertTrue(lonelyCell.isAlive());
 	}
+
 	@Test
 	public void lonelyCellShouldStayAliveWhenTwoNeighboursAreAdded() {
 		List<Cell> newCellsList = new ArrayList<Cell>();

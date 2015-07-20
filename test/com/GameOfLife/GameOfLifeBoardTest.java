@@ -33,7 +33,6 @@ public class GameOfLifeBoardTest {
 			};
 		
 		Assert.assertArrayEquals(board, game.get2DArray());
-		game.display();
 	}
 	@Test
 	public void shouldDisplaySecondBoard() {
@@ -46,7 +45,6 @@ public class GameOfLifeBoardTest {
 				{false,false,true,false,false}
 			};
 		Assert.assertArrayEquals(board, game.get2DArray());
-		game.display();
 	}
 	@Test
 	public void shouldDisplayThirdBoard() {
@@ -60,7 +58,6 @@ public class GameOfLifeBoardTest {
 				{false,false,true,true,false}
 			};
 		Assert.assertArrayEquals(board, game.get2DArray());
-		game.display();
 	}
 
 }
