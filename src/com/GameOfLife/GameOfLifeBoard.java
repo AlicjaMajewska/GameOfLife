@@ -24,8 +24,6 @@ public class GameOfLifeBoard {
 		}
 		addNeighboursToCell();
 	}
-		
-	
 
 	public GameOfLifeBoard(int x, int y, boolean[][] board) {
 		xSize = x;
@@ -67,17 +65,6 @@ public class GameOfLifeBoard {
 		}
 	}
 
-	public void display() {
-		for (int i = 0; i < xSize; ++i) {
-			for (int j = 0; j < ySize; ++j) {
-				Coordinates coordinates = new Coordinates(i, j);
-				System.out.print(cellMap.get(coordinates).print() + "|");
-				
-			}
-			System.out.println("");
-		}
-		System.out.println("");
-	}
 	
 	public Boolean[][] get2DArray() {
 		Boolean [][] lifeArray = new Boolean[xSize][ySize];

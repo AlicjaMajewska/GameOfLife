@@ -6,11 +6,14 @@ import java.util.List;
 public class Cell {
 
 	private List<Cell> neighbours = new ArrayList<Cell>();
-	Boolean alive;
-	Boolean nextState;
-
+	private STATE actualState;
+	private STATE nextState;
+	public enum STATE {DEAD, ALIVE};
 	Cell(Boolean alive) {
-		this.alive = alive;
+		this.actualState = STATE.DEAD;
+		if(alive){
+			this.actualState = STATE.ALIVE;
+		}
 	}
 
 	public void addNeighbours(List<Cell> cells) {
@@ -21,30 +24,22 @@ public class Cell {
 		}
 	}
 
-	
 	public Boolean isAlive() {
-		return alive;
-	}
-
-	public char print() {
-		if (alive) {
-			return '*';
-		} else
-			return ' ';
+		return STATE.ALIVE.equals(actualState);
 	}
 
 	public void changeState() {
-		alive = nextState;
+		actualState = nextState;
 	}
 
 	public void setNextState() {
-		nextState = alive;
+		nextState = actualState;
 		int aliveNeighbours = countAliveNeighbours();
 		if (aliveNeighbours < 2 || aliveNeighbours > 3) {
-			nextState = false;
+			nextState = STATE.DEAD;
 		}
-		if ((alive && aliveNeighbours == 2) || aliveNeighbours == 3) {
-			nextState = true;
+		if ((STATE.ALIVE.equals(actualState) && aliveNeighbours == 2) || aliveNeighbours == 3) {
+			nextState = STATE.ALIVE;
 		}
 
 	}
